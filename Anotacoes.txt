@@ -1,0 +1,12 @@
+# Instalar o ionic e o cordova
+npm i -g ionic cordova
+
+# Ver a versão do ionic
+$ ionic -v
+
+# Criar projeto com formato de tabs e com nome 01-filmes 
+$ ionic start 01-filmes tabs
+
+# Iniciar o servidor do ionic
+$ ionic serve
+
