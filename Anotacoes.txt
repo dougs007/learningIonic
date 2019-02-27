@@ -10,3 +10,8 @@ $ ionic start 01-filmes tabs
 # Iniciar o servidor do ionic
 $ ionic serve
 
+# Criar projeto ionic com React.js
+$ ionic start nome_projeto blank --type=react
+
+# Criar página no ionic chamada carros (g= generate, page=página)
+$ ionic g page carros
