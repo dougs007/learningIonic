@@ -7,11 +7,17 @@
 <ion-content padding>
 
   <ion-list>
-
-    <ion-item *ngFor="let carro of carros">
-      <ion-label>{{ carro.nome }}</ion-label>
+  
+    <ion-item *ngFor="let carro of carros" style="margin-left: -10%;">
+      <ion-thumbnail slot="start">
+        <img src="{{ carro.foto }}">
+      </ion-thumbnail>
+      <ion-label>
+        {{ carro.nome }}
+        <p>{{ carro.ano }}</p>
+      </ion-label>
+      <p>{{ carro.cor }}</p>
     </ion-item>
-
+  
   </ion-list>
-
 </ion-content>
