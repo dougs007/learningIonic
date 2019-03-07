@@ -44,7 +44,7 @@ export class AppComponent {
       title: 'Carros Grid',
       url: '/carros-grid',
       icon: 'car'
-    }
+    },
   ];
 
   constructor(
