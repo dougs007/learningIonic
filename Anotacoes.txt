@@ -15,3 +15,7 @@ $ ionic start nome_projeto blank --type=react
 
 # Criar página no ionic chamada carros (g= generate, page=página)
 $ ionic g page carros
+
+# Cria uma service de carro para gerenciar os dados de carro.
+$ ionic g service carro
+
