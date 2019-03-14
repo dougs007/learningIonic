@@ -10,7 +10,7 @@
 <ion-content padding>
   <ion-grid>
     <ion-row>
-      <ion-col [routerLink]="[ '/carro-detalhe']" size="4" *ngFor="let carro of carros">
+      <ion-col [routerLink]="[ '/carro-detalhe', i]" size="4" *ngFor="let carro of carros, let i = index">
         <ion-card-title>
           <img src="{{ carro.foto }}">
         </ion-card-title>

@@ -19,3 +19,4 @@ $ ionic g page carros
 # Cria uma service de carro para gerenciar os dados de carro.
 $ ionic g service carro
 
+# Recuperar Parâmetros Snapshot

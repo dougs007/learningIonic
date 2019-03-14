@@ -1,9 +1,24 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>carro-detalhe</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ titulo }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-
+  <ion-list>
+    <ion-card>
+      <img src="{{ carro.foto }}">
+      <ion-card-content>
+        <ion-card-title>
+          {{ carro.nome }}
+        </ion-card-title>
+        <p>Modelo: {{ carro.marca }}</p>
+        <p>Ano: {{ carro.ano }}</p>
+        <p>Cor: {{ carro.cor }}</p>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
 </ion-content>

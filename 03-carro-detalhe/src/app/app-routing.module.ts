@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: 'carros-avatar', loadChildren: './carros-avatar/carros-avatar.module#CarrosAvatarPageModule' },
   { path: 'carros-card', loadChildren: './carros-card/carros-card.module#CarrosCardPageModule' },
   { path: 'carros-grid', loadChildren: './carros-grid/carros-grid.module#CarrosGridPageModule' },
-  { path: 'carro-detalhe', loadChildren: './carro-detalhe/carro-detalhe.module#CarroDetalhePageModule' }
+  { path: 'carro-detalhe/:id', loadChildren: './carro-detalhe/carro-detalhe.module#CarroDetalhePageModule' }
 ];
 
 @NgModule({
