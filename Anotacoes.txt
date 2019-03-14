@@ -20,3 +20,13 @@ $ ionic g page carros
 $ ionic g service carro
 
 # Recuperar Parâmetros Snapshot
+
+
+
+// Como buildar o app no seu smartphone. PS:(Precisa estar na mesma rede, **wifi**)
+
+1-> Instale o app "Ionic DevApp" na Play Store e crie uma conta.
+2-> Em seu projeto, execute o comando $ ionic cordova prepare
+3-> E depois execute o comando para subir o servidor $ ionic serve --devapp
+4-> Em seu smartphone, abra o app "Ionic DevApp" e lá será listado os apps na rede.
+
