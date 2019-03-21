@@ -1,0 +1,45 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>
+        Carros Grid
+      </ion-title>
+    </ion-toolbar> 
+  </ion-header>
+
+<ion-content padding>
+    <ion-item>
+        <ion-label position="floating">Digite o CEP</ion-label>
+        <ion-input [(ngModel)]="cep"></ion-input>
+      </ion-item>
+
+  <ion-button (click)="buscarCep()" color="tertiary">Buscar</ion-button>
+
+    <ion-item>
+      <ion-label>CEP</ion-label>
+      <p>{{endereco.cep}}</p>
+    </ion-item>
+    <ion-item>
+      <ion-label>Endereço:</ion-label>
+      <p>{{endereco.logradouro}}</p>
+    </ion-item>
+    <ion-item>
+      <ion-label>Complemento:</ion-label>
+      <p>{{endereco.complemento}}</p>
+    </ion-item>
+    <ion-item>
+      <ion-label>UF:</ion-label>
+      <p>{{endereco.uf}}</p>
+    </ion-item>
+    <ion-item>
+      <ion-label>Cidade:</ion-label>
+      <p>{{endereco.localidade}}</p>
+    </ion-item>
+    <ion-item>
+      <ion-label>Bairro:</ion-label>
+      <p>{{endereco.bairro}}</p>
+    </ion-item>
+
+</ion-content>

@@ -1,0 +1,25 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>
+        Carros card
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content padding>
+    <ion-list *ngFor="let carro of carros">
+      <ion-card>
+              <img src="{{carro.foto}}" >
+          <ion-card-content>
+            <ion-card-title>
+              {{carro.nome}}
+            </ion-card-title>
+            <p>{{carro.ano}}</p> 
+            <p>{{carro.cor}}</p>
+          </ion-card-content>
+      </ion-card>
+    </ion-list>  
+</ion-content>

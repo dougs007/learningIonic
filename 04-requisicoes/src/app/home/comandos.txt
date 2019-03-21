@@ -1,0 +1,34 @@
+instalar ionic 
+npm i -g ionic cordova
+
+criar projeto com menu lateral 
+ionic start 
+
+iniciar ionic
+ionic serve
+
+criar uma página
+ionic g page carros
+
+{{exemplo}} --> chama-se interporlação
+
+criar uma service
+ionic g service carro(qualquer nome) 
+
+Recuperar parametro 
+this.router.snapshot.paramMap.get('#'); # é qualquer coisa
+                    OU
+    constructor(
+      private router:ActivatedRoute,
+      private CarroService: CarroService,
+    ){
+
+      this.router.snapshot.paramMap.get('#');
+
+    }                    
+
+Receber requisições
+    buscarCep(){
+      this.enderecoService.buscarCep().subscribe((data: any)=>{
+          console.log(data);
+      });

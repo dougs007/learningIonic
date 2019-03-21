@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      {{ tittle }}
+    </ion-title>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+
+  <ion-card *ngFor="let new of news">
+    <a href="{{new.url}}">
+      <img src="https://www.vagalume.com.br{{new.pic_src}}" />
+    </a>
+    <ion-card-content>
+      <ion-card-title>
+        {{new.headline}}
+      </ion-card-title>
+      <p>
+        {{new.kicker}}
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
