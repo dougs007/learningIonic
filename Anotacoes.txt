@@ -30,3 +30,20 @@ $ ionic g service carro
 3-> E depois execute o comando para subir o servidor $ ionic serve --devapp
 4-> Em seu smartphone, abra o app "Ionic DevApp" e lá será listado os apps na rede.
 
+
+# Para importar o http client para fazer requisições http
+import { HttpClientModule } from '@angular/common/http';
+
+ imports: [
+    BrowserModule,
+    HttpClientModule,
+    IonicModule.forRoot(),
+    AppRoutingModule
+  ],
+
+# Método para buscar da service e exibir dados na tela.
+ngOnInit() {
+  this.nomeService.nomeMetodo().subscribe((data: any) =>{
+    console.log(data)
+  });
+}
