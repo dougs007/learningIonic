@@ -20,7 +20,7 @@ $ ionic g page carros
 $ ionic g service carro
 
 # Recuperar Parâmetros Snapshot
-
+constructor(private router: ActivatedRoute){}
 
 
 // Como buildar o app no seu smartphone. PS:(Precisa estar na mesma rede, **wifi**)
