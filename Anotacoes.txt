@@ -22,6 +22,9 @@ $ ionic g service carro
 # Recuperar Parâmetros Snapshot
 constructor(private router: ActivatedRoute){}
 
+ngOnInit() {
+  let id = this.router.snapshot.paramMap.get('id');
+}
 
 // Como buildar o app no seu smartphone. PS:(Precisa estar na mesma rede, **wifi**)
 
