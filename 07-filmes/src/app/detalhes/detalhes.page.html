@@ -16,8 +16,10 @@
       <img src="https://image.tmdb.org/t/p/w500/{{ filme.backdrop_path }}" />
     </a>
     <ion-card-header>
+      <ion-card-title>
+        {{ filme.title }}
+      </ion-card-title>
       <ion-card-subtitle>{{ filme.vote_average }}</ion-card-subtitle>
-      <ion-card-title>{{ filme.title }}</ion-card-title>
     </ion-card-header>
 
     <ion-card-content>

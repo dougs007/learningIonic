@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
 export class Tab1Page {
 
   public filmes = []
-  public title = 'The Movies'
+  public title = 'The Popular Movies'
 
   constructor(
     private filmesService: FilmesService

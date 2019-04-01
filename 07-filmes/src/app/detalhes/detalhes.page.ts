@@ -12,6 +12,7 @@ export class DetalhesPage implements OnInit {
 
   public filme = {}
   public atores = []
+  public title
 
   constructor(
     private router: ActivatedRoute,
@@ -28,6 +29,7 @@ export class DetalhesPage implements OnInit {
 
     this.detalheService.getActors(id).subscribe((data: any) => {
       this.atores = data.cast
+      this.title = data.cast
     })
 
   }

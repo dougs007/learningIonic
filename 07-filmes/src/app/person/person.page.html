@@ -11,18 +11,30 @@
 
 <ion-content>
 
+
   <ion-card>
+    <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2{{ actors.profile_path }}" />
     <ion-card-header>
-      <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2{{ actors.profile_path }}" />
       <ion-card-title>
-        {{ actors.name }}
+        {{ actors.title }}
       </ion-card-title>
-      <p>
-        Birthday: {{ actors.birthday }}
-      </p>
-      <ion-card-subtitle>{{ actors.biography ? actors.biography : 'null' }}</ion-card-subtitle>
+      <ion-card-subtitle>Birthday: {{ actors.birthday | date: 'dd/MM/yyyy' }}</ion-card-subtitle>
     </ion-card-header>
 
+    <ion-card-content>
+      {{ actors.biography }}
+    </ion-card-content>
+
+    <ion-card-content>
+      Place Of Birth : {{ actors.place_of_birth ? actors.place_of_birth : ' - ' }}
+    </ion-card-content>
+
+    <ion-card-content>
+      Popularity : {{ actors.popularity ? actors.popularity : ' - ' }}
+    </ion-card-content>
+    <ion-card-content>
+      known For Department : {{ actors.known_for_department ? actors.known_for_department : ' - ' }}
+    </ion-card-content>
   </ion-card>
 
 </ion-content>
