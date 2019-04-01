@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      The Movies
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+    <a href="{{ filme.homepage }}" target="_blank">
+      <img src="https://image.tmdb.org/t/p/w500/{{ filme.backdrop_path }}" />
+    </a>
+    <ion-card-header>
+      <ion-card-subtitle>{{ filme.vote_average }}</ion-card-subtitle>
+      <ion-card-title>{{ filme.title }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      {{ filme.overview }}
+    </ion-card-content>
+  </ion-card>
+  <h3 style="text-align: center">Elenco</h3>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="4" *ngFor="let ator of atores">
+        <img [routerLink]="['/person', ator.id]" src="https://image.tmdb.org/t/p/w500/{{ator.profile_path}}" />
+        <p>{{ ator.name }}</p>
+        <p>{{ ator.character }}</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
