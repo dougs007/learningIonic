@@ -18,7 +18,7 @@ export class Tab1Page {
   ngOnInit() {
 
     this.filmesService.getPopular().subscribe((data: any) => {
-      this.filmes = (data.results)
+      this.filmes = data.results
     })
 
   }
