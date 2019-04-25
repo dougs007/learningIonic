@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
+import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -8,11 +9,16 @@ import { of } from 'rxjs';
 
 export class UsuarioService {
 
-  constructor(
-    private http: HttpClient
-  ) {}
+  private usuariosCollection
 
-  all(){
+  constructor(
+    private http: HttpClient,
+    private db: AngularFirestore,
+  ) {
+    this.usuariosCollection = this.db.collection('users')
+  }
+
+  all() {
     let usuarios = [
       { id: 1, nome: 'Douglas',  telefone: '(61)992336-5454', email: 'douglas@iesb.com'},
       { id: 2, nome: 'Gabriela', telefone: '(61)99233-6546',  email: 'gabriela@iesb.com'},
@@ -25,7 +31,12 @@ export class UsuarioService {
   }
 
   save(user) {
-    console.log(user);
+
+    // Convert the user custom object for string and convert for json
+    user = JSON.parse(JSON.stringify(user))
+
+    // save method
+    this.usuariosCollection.add(user);
   }
 
 }

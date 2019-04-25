@@ -50,3 +50,31 @@ ngOnInit() {
     console.log(data)
   });
 }
+
+
+# Instalar dependencias do firebase
+
+npm install firebase angularfire2
+
+
+# Adicionar as importações no arquivo "app.module.ts"
+
+
+	import { AngularFireModule } from 'angularfire2';
+	import { environment } from '../environments/environment';
+	import { AngularFirestoreModule } from 'angularfire2/firestore';
+
+	  imports: [
+	    BrowserModule,
+	    IonicModule.forRoot(),
+	    AppRoutingModule,
+	    HttpClientModule,
+	    AngularFireModule.initializeApp(environment.firebase),
+	    AngularFirestoreModule,
+	  ],
+
+
+# Adicionar importações na service a ser salva.
+
+	import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
+ 

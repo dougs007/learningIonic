@@ -13,12 +13,16 @@
     <ion-input [(ngModel)]="usuario.nome"></ion-input>
   </ion-item>
   <ion-item>
+    <ion-label position="floating">Matrícula</ion-label>
+    <ion-input type="number" [(ngModel)]="usuario.matricula"></ion-input>
+  </ion-item>
+  <ion-item>
     <ion-label position="floating">Telefone</ion-label>
     <ion-input type="number" [(ngModel)]="usuario.telefone"></ion-input>
   </ion-item>
   <ion-item>
     <ion-label>Data Nascimento</ion-label>
-    <ion-datetime display-format="MMM DD, YYYY" [(ngModel)]="usuario.dataNascimento"></ion-datetime>
+    <ion-datetime display-format="MMM DD, YYYY" [(ngModel)]="usuario.data_nascimento"></ion-datetime>
   </ion-item>
 
   <ion-list>
@@ -28,42 +32,42 @@
       </ion-list-header>
       <ion-item>
         <ion-label>Masculino</ion-label>
-        <ion-radio slot="start" value="M" checked></ion-radio>
+        <ion-radio slot="start" value="M" [(ngModel)]="usuario.sexo" checked></ion-radio>
       </ion-item>
       <ion-item>
         <ion-label>Feminino</ion-label>
-        <ion-radio slot="start" value="F"></ion-radio>
+        <ion-radio slot="start" value="F" [(ngModel)]="usuario.sexo"></ion-radio>
       </ion-item>
     </ion-radio-group>
   </ion-list>
 
   <ion-item>
     <ion-label position="floating">CEP</ion-label>
-    <ion-input type="number" [(ngModel)]="endereco.cep" (change)="buscarCep()"></ion-input>
+    <ion-input type="number" [(ngModel)]="usuario.endereco.cep" (change)="buscarCep()"></ion-input>
   </ion-item>
   <ion-item>
     <ion-label position="floating">Logradouro</ion-label>
-    <ion-input [(ngModel)]="endereco.logradouro"></ion-input>
+    <ion-input [(ngModel)]="usuario.endereco.logradouro"></ion-input>
   </ion-item>
   <ion-item>
     <ion-label position="floating">Complemento</ion-label>
-    <ion-input [(ngModel)]="endereco.complemento"></ion-input>
+    <ion-input [(ngModel)]="usuario.endereco.complemento"></ion-input>
   </ion-item>
   <ion-item>
     <ion-label position="floating">Número</ion-label>
-    <ion-input type="number" [(ngModel)]="endereco.numero"></ion-input>
+    <ion-input type="number" [(ngModel)]="usuario.endereco.numero"></ion-input>
   </ion-item>
   <ion-item>
     <ion-label position="floating">Bairro</ion-label>
-    <ion-input [(ngModel)]="endereco.bairro"></ion-input>
+    <ion-input [(ngModel)]="usuario.endereco.bairro"></ion-input>
   </ion-item>
   <ion-item>
     <ion-label position="floating">Cidade</ion-label>
-    <ion-input [(ngModel)]="endereco.cidade"></ion-input>
+    <ion-input [(ngModel)]="usuario.endereco.localidade"></ion-input>
   </ion-item>
   <ion-item>
     <ion-label position="floating">UF</ion-label>
-    <ion-input [(ngModel)]="endereco.uf"></ion-input>
+    <ion-input [(ngModel)]="usuario.endereco.uf"></ion-input>
   </ion-item>
 
   <ion-button color="success" expand="full" (click)="save()">Enviar</ion-button>

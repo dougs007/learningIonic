@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { EnderecoService } from '../endereco.service';
-import { Endereco } from '../Models/endereco';
 import { Usuario } from '../Models/usuario';
 import { UsuarioService } from '../usuario.service';
 
@@ -12,8 +11,6 @@ import { UsuarioService } from '../usuario.service';
 
 export class FormularioPage implements OnInit {
 
-  public cep
-  public endereco: Endereco = new Endereco()
   public usuario: Usuario = new Usuario()
 
   constructor(
@@ -25,15 +22,20 @@ export class FormularioPage implements OnInit {
   }
 
   buscarCep() {
-    this.enderecoService.buscarCep(this.endereco.cep).subscribe((data: any) => {
-      data.cep = data.cep.replace("-", "")
-      this.endereco = data;
+    this.enderecoService.buscarCep(this.usuario.endereco.cep).subscribe((data: any) => {
+      // data.cep = data.cep.replace("-", "")
+
+      console.log(data);
+      this.usuario.endereco = data;
     });
   }
 
   save() {
-    console.log(this.usuario);
     this.usuarioService.save(this.usuario)
+  }
+
+  all() {
+
   }
 
 }
