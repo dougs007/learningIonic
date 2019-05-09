@@ -9,7 +9,7 @@ import {TurmaService} from '../turma.service';
 
 export class TurmaPage implements OnInit {
 
-    public turma = []
+    public turmas = []
     public titulo = 'Lista de Turmas'
 
     constructor(
@@ -19,7 +19,7 @@ export class TurmaPage implements OnInit {
 
     ngOnInit() {
         this.turmaService.all().subscribe((data: any) => {
-            this.turma = data
+            this.turmas = data
         })
     }
 
