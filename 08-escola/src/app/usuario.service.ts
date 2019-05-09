@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
 import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -10,33 +11,45 @@ import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/fires
 export class UsuarioService {
 
   private usuariosCollection
+  usuarios
 
   constructor(
     private http: HttpClient,
     private db: AngularFirestore,
   ) {
     this.usuariosCollection = this.db.collection('users')
+
+    this.usuarios = this.usuariosCollection.snapshotChanges().pipe(
+      map(actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data()
+          const id = a.payload.doc.id
+          return { id, ...data }
+        })
+      })
+    )
+
   }
 
   all() {
-    let usuarios = [
-      { id: 1, nome: 'Douglas',  telefone: '(61)992336-5454', email: 'douglas@iesb.com'},
-      { id: 2, nome: 'Gabriela', telefone: '(61)99233-6546',  email: 'gabriela@iesb.com'},
-      { id: 3, nome: 'João',     telefone: '(61)99233-6548',  email: 'joao@iesb.com'},
-      { id: 4, nome: 'Maria',    telefone: '(61)99233-6547',  email: 'maria@iesb.com'},
-      { id: 5, nome: 'Joana',    telefone: '(61)99233-1234',  email: 'anderson@iesb.com'}
-    ];
-  
-    return of(usuarios)
+    return this.usuarios
   }
 
-  save(user) {
-
+  save(id = null, user) {
     // Convert the user custom object for string and convert for json
     user = JSON.parse(JSON.stringify(user))
-
+    if (id) return this.usuariosCollection.doc(id).update()
     // save method
-    this.usuariosCollection.add(user);
+    this.usuariosCollection.add(user)
+  }
+
+  delete(id) {
+    // Search the collection $id
+    this.usuariosCollection.doc(id).delete()
+  }
+
+  getUsuario(id) {
+    return this.usuariosCollection.doc(id).valueChanges()
   }
 
 }

@@ -70,7 +70,8 @@
     <ion-input [(ngModel)]="usuario.endereco.uf"></ion-input>
   </ion-item>
 
+  <ion-button *ngIf="!usuario.id" color="danger" expand="full" (click)="delete()">Excluir</ion-button>
   <ion-button color="success" expand="full" (click)="save()">Enviar</ion-button>
-  <ion-button color="danger" expand="full">Cancelar</ion-button>
+  <ion-button color="warning" expand="full">Cancelar</ion-button>
 
 </ion-content>

@@ -10,19 +10,20 @@
 </ion-header>
 
 <ion-content>
-    <ion-fab vertical="bottom" horizontal="end" slot="fixed" [routerLink]="['/formulario']">
-        <ion-fab-button>
-          <ion-icon name="add"></ion-icon>
-        </ion-fab-button>
-      </ion-fab>
-    
-    <ion-list>
-        <ion-item  *ngFor="let usuario of usuarios" >
-          <ion-label>{{usuario.nome}}
-              <p>{{usuario.telefone}}</p>
-              <p>{{usuario.email}}</p>
-          </ion-label>
-        </ion-item>
-    </ion-list>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" [routerLink]="['/formulario']">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-list>
+    <ion-item *ngFor="let usuario of usuarios" [routerLink]="['/formulario', usuario.id]">
+      <ion-label>
+        {{ usuario.nome }}
+        <p>{{ usuario.telefone }}</p>
+        <p>{{ usuario.email }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 
 </ion-content>

@@ -5,8 +5,9 @@ const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', loadChildren: './home/home.module#HomePageModule' },
   { path: 'list', loadChildren: './list/list.module#ListPageModule' },
+  { path: 'aluno', loadChildren: './aluno/aluno.module#AlunoPageModule' },
+  { path: 'formulario/:id', loadChildren: './formulario/formulario.module#FormularioPageModule' },
   { path: 'formulario', loadChildren: './formulario/formulario.module#FormularioPageModule' },
-  { path: '/formulario/id:', loadChildren: './formulario/formulario.module#FormularioPageModule' },
 ];
 
 @NgModule({
@@ -15,4 +16,5 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule {}
