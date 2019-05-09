@@ -1,0 +1,83 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-back-button slot="start"></ion-back-button>
+    <ion-title>{{ titulo }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Nome</ion-label>
+    <ion-input clearInput [(ngModel)]="professor.nome"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Matricula</ion-label>
+    <ion-input clearInput [(ngModel)]="professor.matricula"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Data de Nascimento</ion-label>
+    <ion-datetime [(ngModel)]="professor.datanasc"></ion-datetime>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Telefone</ion-label>
+    <ion-input clearInput type="tel" [(ngModel)]="professor.telefone"></ion-input>
+  </ion-item>
+
+  <ion-radio-group [(ngModel)]="professor.sexo">
+    <ion-list-header>
+      <ion-label>Sexo</ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label>Masculino</ion-label>
+      <ion-radio slot="start" value="M" checked></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Feminino</ion-label>
+      <ion-radio slot="start" value="F"></ion-radio>
+    </ion-item>
+  </ion-radio-group>
+
+  <ion-item>
+    <ion-label position="floating">Cep</ion-label>
+    <ion-input clearInput [(ngModel)]="professor.endereco.cep" (change)="buscarCep()"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Logradouro</ion-label>
+    <ion-input clearInput [(ngModel)]="professor.endereco.logradouro"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Complemento</ion-label>
+    <ion-input clearInput [(ngModel)]="professor.endereco.complemento"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Número</ion-label>
+    <ion-input clearInput [(ngModel)]="professor.endereco.numero"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Bairro</ion-label>
+    <ion-input clearInput [(ngModel)]="professor.endereco.bairro"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Cidade</ion-label>
+    <ion-input clearInput [(ngModel)]="professor.endereco.localidade"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">UF</ion-label>
+    <ion-input clearInput [(ngModel)]="professor.endereco.uf"></ion-input>
+  </ion-item>
+
+  <ion-button color="primary" (click)="salvar()">Enviar</ion-button>
+  <ion-button color="danger" (click)="excluir()">Excluir</ion-button>
+  <ion-button color="tertiary" (click)="voltar()">Voltar</ion-button>
+
+</ion-content>

@@ -13,4 +13,5 @@ export class EnderecoService {
   buscarCep(cep){
     return this.http.get('https://viacep.com.br/ws/' + cep + '/json/');
   }
+
 }

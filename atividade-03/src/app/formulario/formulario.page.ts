@@ -1,56 +1,64 @@
-import { EnderecoService } from './../endereco.service';
-import { Component, OnInit } from '@angular/core';
-import { AlunoService } from '../aluno.service';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Aluno } from '../model/Aluno';
+import {EnderecoService} from './../endereco.service';
+import {Component, OnInit} from '@angular/core';
+import {AlunoService} from '../aluno.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Aluno} from '../model/Aluno';
 
 @Component({
-  selector: 'app-formulario',
-  templateUrl: './formulario.page.html',
-  styleUrls: ['./formulario.page.scss'],
+    selector: 'app-formulario',
+    templateUrl: './formulario.page.html',
+    styleUrls: ['./formulario.page.scss'],
 })
 
 export class FormularioPage implements OnInit {
 
-  public aluno: Aluno = new Aluno;
-  private id
+    public aluno: Aluno = new Aluno;
+    private id
 
-  constructor(
-    private enderecoService: EnderecoService,
-    private alunoService: AlunoService,
-    private route: Router,
-    private router: ActivatedRoute
-  ) { }
-
-  ngOnInit() {
-    this.id = this.router.snapshot.paramMap.get('id')
-    if (this.id) {
-      this.alunoService.getUsuario(this.id).subscribe((data: any) => {
-        this.aluno = data
-      })
+    constructor(
+        private enderecoService: EnderecoService,
+        private alunoService: AlunoService,
+        private route: Router,
+        private router: ActivatedRoute
+    ) {
     }
 
-  }
+    ngOnInit() {
+        this.id = this.router.snapshot.paramMap.get('id')
+        if (this.id) {
+            this.alunoService.getUsuario(this.id).subscribe((data: any) => {
+                this.aluno = data
+            })
+        }
 
-  buscarCep() {
-    this.enderecoService.buscarCep(this.aluno.endereco.cep).subscribe((data: any) => {
-      console.log(data);
-      this.aluno.endereco = data
-    })
-  }
+    }
 
-  salvar() {
-    this.alunoService.salvar(this.aluno, this.id);
+    buscarCep() {
+        this.enderecoService.buscarCep(this.aluno.endereco.cep).subscribe((data: any) => {
+            console.log(data);
+            this.aluno.endereco = data
+        })
+    }
 
-    // Redirecionar para a rota ....
-    this.route.navigateByUrl('/aluno');
-  }
+    salvar() {
+        this.alunoService.salvar(this.aluno, this.id);
 
-  excluir() {
-    this.alunoService.excluir(this.id);
+        // Redirecionar para a rota ....
+        this.route.navigateByUrl('/aluno');
+    }
 
-    // Redirecionar para a rota ....
-    this.route.navigateByUrl('/aluno');
-  }
+    excluir() {
+        if (this.id) {
+            this.alunoService.excluir(this.id);
+
+            // Redirecionar para a rota ....
+            this.route.navigateByUrl('/aluno');
+        }
+    }
+
+    voltar() {
+        // Redirecionar para a rota ....
+        this.route.navigateByUrl('/aluno');
+    }
 
 }

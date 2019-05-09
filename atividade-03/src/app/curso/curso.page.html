@@ -10,16 +10,13 @@
 <ion-content>
 
     <ion-list>
-        <ion-item *ngFor="let aluno of alunos" [routerLink]="['/formulario', aluno.id]">
-            <ion-label>{{ aluno.nome }}</ion-label>
-            <p>
-                {{ aluno.matricula }}
-            </p>
+        <ion-item *ngFor="let curso of cursos" [routerLink]="['/curso-form', curso.id]">
+            <ion-label>{{ curso.nome }}</ion-label>
         </ion-item>
     </ion-list>
 
     <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-        <ion-fab-button color="tertiary" [routerLink]="['/formulario']">
+        <ion-fab-button color="tertiary" [routerLink]="['/curso-form']">
             <ion-icon name="add"></ion-icon>
         </ion-fab-button>
     </ion-fab>

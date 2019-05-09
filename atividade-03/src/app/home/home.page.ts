@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
+  public titulo = 'Atividade 06'
 }

@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-back-button slot="start"></ion-back-button>
+    <ion-title>{{ titulo }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-item>
+    <ion-label position="floating">Nome</ion-label>
+    <ion-input clearInput [(ngModel)]="disciplina.nome"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Código</ion-label>
+    <ion-input clearInput [(ngModel)]="disciplina.codigo"></ion-input>
+  </ion-item>
+
+
+  <ion-item>
+    <ion-label position="floating">Turno</ion-label>
+    <ion-input clearInput [(ngModel)]="disciplina.turno"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Ano</ion-label>
+    <ion-input clearInput type="tel" [(ngModel)]="disciplina.ano"></ion-input>
+  </ion-item>
+  <hr>
+
+  <ion-button color="primary" (click)="salvar()">Enviar</ion-button>
+  <ion-button color="danger" (click)="excluir()">Excluir</ion-button>
+  <ion-button color="tertiary" (click)="voltar()">Voltar</ion-button>
+
+</ion-content>
