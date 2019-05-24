@@ -47,7 +47,7 @@ export class TurmaService {
         return this.turmaCollection.doc(id).delete();
     }
 
-    findProfessor(id) {
+    findTurma(id) {
         return this.turmaCollection.doc(id).valueChanges();
     }
 }

@@ -30,7 +30,7 @@
   <hr>
 
   <ion-button color="primary" (click)="salvar()">Enviar</ion-button>
-  <ion-button color="danger" (click)="excluir()">Excluir</ion-button>
+  <ion-button color="danger" *ngIf="id" (click)="excluir()">Excluir</ion-button>
   <ion-button color="tertiary" (click)="voltar()">Voltar</ion-button>
 
 </ion-content>
