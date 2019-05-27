@@ -20,19 +20,15 @@
   </ion-item>
 
 
-  <ion-item>
-    <ion-label position="floating">Foto</ion-label>
-    <ion-input clearInput [(ngModel)]="produto.foto"></ion-input>
-  </ion-item>
+  <ion-button color="primary" (click)="tirarFoto()">Tirar Foto</ion-button>
+  <img src="{{produto.foto}}" >
 
-  <ion-item>
-    <ion-label position="floating">Código de Barra</ion-label>
-    <ion-input clearInput type="tel" [(ngModel)]="produto.codigoBarra"></ion-input>
-  </ion-item>
+  <ion-button color="danger" (click)="LercodigoBarra()">Ler Código de Barra</ion-button>
+  {{produto.codigoBarra | json}}
   <hr>
 
-  <ion-button color="primary" (click)="salvar()">Enviar</ion-button>
-  <ion-button color="danger" *ngIf="id" (click)="excluir()">Excluir</ion-button>
-  <ion-button color="tertiary" (click)="voltar()">Voltar</ion-button>
+  <ion-button color="primary" (click)="save()">Enviar</ion-button>
+  <ion-button color="danger" *ngIf="id" (click)="delete()">Excluir</ion-button>
+  <ion-button color="tertiary" (click)="back()">Voltar</ion-button>
 
 </ion-content>

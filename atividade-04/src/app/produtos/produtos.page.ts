@@ -17,7 +17,6 @@ export class ProdutosPage implements OnInit {
 
   ngOnInit() {
     this.produtoservice.all().subscribe((data: any) => {
-      console.log(data);
       this.produtos = data
     })
   }

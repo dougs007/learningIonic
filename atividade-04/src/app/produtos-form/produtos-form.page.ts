@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {ProdutoService} from '../produto.service';
-import {ActivatedRoute, Router} from '@angular/router';
-import {Produtos} from '../Models/Produto';
+import { ProdutoService } from '../produto.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Produtos } from '../Models/Produto';
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 
 @Component({
   selector: 'app-produtos-form',
@@ -15,9 +17,11 @@ export class ProdutosFormPage implements OnInit {
   public produto: Produtos = new Produtos()
 
   constructor(
-      private produtoService: ProdutoService,
-      private route: Router,
-      private router: ActivatedRoute
+    private barcodeScanner: BarcodeScanner,
+    private camera: Camera,
+    private produtoService: ProdutoService,
+    private route: Router,
+    private router: ActivatedRoute
   ) { }
 
   ngOnInit() {
@@ -31,4 +35,40 @@ export class ProdutosFormPage implements OnInit {
 
   }
 
+  tirarFoto() {
+    const options: CameraOptions = {
+      quality: 50,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE
+    }
+
+    this.camera.getPicture(options).then((imageData) => {
+      this.produto.foto = 'data:image/jpeg;base64,' + imageData;
+    }, (err) => {
+    });
+
+  }
+
+  LercodigoBarra() {
+    this.barcodeScanner.scan().then(barcodeData => {
+      this.produto.codigoBarra = barcodeData;
+    }).catch(err => {
+      console.log('Error', err);
+    });
+  }
+
+  save() {
+    this.produtoService.save(this.produto, this.id);
+    this.route.navigateByUrl('/produtos');
+  }
+
+  delete() {
+    this.produtoService.delete(this.id);
+    this.route.navigateByUrl('/produtos');
+  }
+
+  back() {
+    this.route.navigateByUrl('/produtos');
+  }
 }

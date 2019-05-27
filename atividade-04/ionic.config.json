@@ -1,5 +1,7 @@
 {
   "name": "atividade-04",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

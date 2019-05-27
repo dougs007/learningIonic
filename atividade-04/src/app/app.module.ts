@@ -1,3 +1,5 @@
+import { Camera } from '@ionic-native/camera/ngx';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
@@ -24,11 +26,13 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
     AppRoutingModule,
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebaseapp),
-    AngularFirestoreModule,
+    AngularFirestoreModule, 
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    Camera,
+    BarcodeScanner,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
