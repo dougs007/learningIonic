@@ -15,6 +15,8 @@ export class AppComponent {
     { title: 'Disciplina', url: '/disciplina', icon: 'contact' },
     { title: 'Professor', url: '/professor', icon: 'contact' },
     { title: 'Turma', url: '/turma', icon: 'contact' },
+    { title: 'Foto', url: '/foto', icon: 'camera' },
+    { title: 'Slide', url: '/slide', icon: 'camera' },
   ];
 
   constructor(

@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {DisciplinaService} from '../disciplina.service';
-import {ActivatedRoute, Router} from '@angular/router';
-import {Disciplina} from '../model/Disciplina';
+import { Component, OnInit } from '@angular/core';
+import { DisciplinaService } from '../disciplina.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Disciplina } from '../model/Disciplina';
+import { CursoService } from '../curso.service';
 
 @Component({
     selector: 'app-disciplina-form',
@@ -14,8 +15,10 @@ export class DisciplinaFormPage implements OnInit {
     private id
     public titulo = 'Dados de Disciplina'
     public disciplina: Disciplina = new Disciplina()
+    public cursos
 
     constructor(
+        private cursoService: CursoService,
         private disciplinaService: DisciplinaService,
         private route: Router,
         private router: ActivatedRoute
@@ -30,6 +33,10 @@ export class DisciplinaFormPage implements OnInit {
                 this.disciplina = data
             })
         }
+
+        this.cursoService.all().subscribe((data: any) => {
+            this.cursos = data
+        })
 
     }
 

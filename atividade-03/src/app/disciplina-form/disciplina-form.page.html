@@ -29,6 +29,13 @@
   </ion-item>
   <hr>
 
+  <ion-item>
+    <ion-label>Curso</ion-label>
+    <ion-select placeholder="Selecione" [(ngModel)]="disciplina.curso">
+      <ion-select-option *ngFor="let curso of cursos" [value]="curso">{{ curso.nome }}</ion-select-option>
+    </ion-select>
+  </ion-item>
+  
   <ion-button color="primary" (click)="salvar()">Enviar</ion-button>
   <ion-button color="danger" *ngIf="id" (click)="excluir()">Excluir</ion-button>
   <ion-button color="tertiary" (click)="voltar()">Voltar</ion-button>

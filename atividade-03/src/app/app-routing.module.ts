@@ -20,6 +20,8 @@ const routes: Routes = [
   { path: 'turma', loadChildren: './turma/turma.module#TurmaPageModule' },
   { path: 'turma-form', loadChildren: './turma-form/turma-form.module#TurmaFormPageModule' },
   { path: 'turma-form/:id', loadChildren: './turma-form/turma-form.module#TurmaFormPageModule' },
+  { path: 'foto', loadChildren: './foto/foto.module#FotoPageModule' },
+  { path: 'slide', loadChildren: './slide/slide.module#SlidePageModule' },
 ];
 
 @NgModule({
